@@ -1,2 +1,2 @@
 # Sixpack
-Setting up sixpack opensource tool for AB testing
+Setting up the sixpack opensource tool for AB testing
