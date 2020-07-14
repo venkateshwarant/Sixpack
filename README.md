@@ -23,4 +23,15 @@ Laptop with at least 8 Gb memory (recommended 16 Gb, ideally 32 Gb)
 * Instructions to install here: https://github.com/sixpack/sixpack
 
 ## Getting started
+All the required packages are installed when we run the provided vagrant file. Once VM is created, ssh to the VM and follow the below steps.
+ 1. Start the Redis server by running the following command.
+```
+redis-server
+```
 
+2. In another tab, ssh to the VM and run the below command to start the sixpack client.
+```
+SIXPACK_CONFIG=/etc/sixpack/config.yml sixpack-web
+```
+
+3. In another tab, ssh inside the VM and run the below command to start the sixpack server.
