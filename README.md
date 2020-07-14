@@ -86,3 +86,25 @@ sudo apt-get install redis-server -y
      asset_path: gen                             # Path for compressed assets to live. This path is RELATIVE to sixpack/static
      secret_key: 'test'        # Random key (any string is valid, required for sixpack-web to run)
 ```
+
+5. Finally, to integrate sixpack in our product we add the following script-
+```
+    var session = new sixpack.Session(
+        {
+           base_url: 'http://192.168.33.15:5000'
+        }
+      );
+
+      function participate() {
+        session.participate('test-exp', ['alt-one', 'alt-two'], function (err, res) {
+          if (err) throw err;
+          alt = res.alternative.name
+          if (alt == 'alt-one') {
+            document.getElementById("participate").innerHTML = 'default: ' + alt;
+          } else {
+            document.getElementById("participate").innerHTML = alt;
+          }
+        });
+      }
+```
+We should call the js function participate() to call one of the variants of the experiments and we should manually handle the UI changes for different variants.
